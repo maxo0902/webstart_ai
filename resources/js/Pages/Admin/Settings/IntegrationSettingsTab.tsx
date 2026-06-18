@@ -293,8 +293,18 @@ export default function IntegrationSettingsTab({ settings, aiProviders }: Props)
                                         <SelectValue placeholder={t('Select driver')} />
                                     </SelectTrigger>
                                     <SelectContent>
-                                        <SelectItem value="pusher">{t('Pusher (Cloud)')}</SelectItem>
-                                        <SelectItem value="reverb">{t('Reverb (Self-hosted)')}</SelectItem>
+                                        <SelectItem value="pusher">
+                                            <div className="flex flex-col">
+                                                <span>{t('Pusher (Cloud)')}</span>
+                                                <span className="text-xs text-muted-foreground">{t('Managed WebSocket service')}</span>
+                                            </div>
+                                        </SelectItem>
+                                        <SelectItem value="reverb">
+                                            <div className="flex flex-col">
+                                                <span>{t('Reverb (Self-hosted)')}</span>
+                                                <span className="text-xs text-muted-foreground">{t('Self-hosted Laravel Reverb WebSocket server')}</span>
+                                            </div>
+                                        </SelectItem>
                                     </SelectContent>
                                 </Select>
                                 {errors.broadcast_driver && (
